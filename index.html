@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liberty Bordados | Fabricação Própria e Qualidade Absoluta</title>
+
+  <meta name="description" content="Fabricação própria de bordados de alta qualidade com tecnologia e precisão. Atendemos pedidos em atacado e varejo." />
+  <meta name="theme-color" content="#042353" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23f26522'/%3E%3Ctext x='16' y='22' font-family='Arial Black,Arial' font-weight='900' font-size='18' fill='white' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-blue':   '#042353',
+            'brand-orange': '#f26522',
+            'brand-light':  '#eae7e4',
+          },
+          fontFamily: {
+            sans:    ['Inter', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #042353; color: #eae7e4; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #042353; }
+    ::-webkit-scrollbar-thumb { background: #eae7e4; border-radius: 4px; }
+    ::selection { background-color: #f26522; color: white; }
+
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    .hide-scroll::-webkit-scrollbar { display: none; }
+
+    .glass-dark { background: rgba(4,35,83,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    .btn-stitch { position: relative; overflow: hidden; transition: all 0.3s ease; }
+    .btn-stitch::before {
+      content: ''; position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px;
+      border: 1px dashed rgba(242,101,34,0); border-radius: inherit;
+      transition: all 0.4s ease; pointer-events: none;
+    }
+    .btn-stitch:hover::before { border-color: rgba(242,101,34,1); }
+    .btn-stitch:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5,0,0,1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-box { transform: scale(0.95) translateY(20px); transition: all 0.4s cubic-bezier(0.5,0,0,1); }
+    .modal-overlay.active .modal-box { transform: scale(1) translateY(0); }
+
+    .category-btn.active { background: #042353; color: white; }
+    .category-btn { background: white; color: #042353; border: 1px solid rgba(4,35,83,0.2); }
+    .category-btn:hover { border-color: #f26522; }
+  </style>
+</head>
+<body class="antialiased">
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════ -->
+<section id="hero" class="min-h-screen flex flex-col justify-center items-center py-16 px-6 relative overflow-hidden">
+
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-100,200 Q200,50 500,300 T1200,100" fill="none" stroke="#eae7e4" stroke-width="2" stroke-dasharray="10 15"/>
+      <path d="M-100,500 Q300,700 700,400 T1500,600" fill="none" stroke="#f26522" stroke-width="1" stroke-dasharray="5 10"/>
+    </svg>
+  </div>
+
+  <div class="max-w-2xl w-full text-center z-10 reveal">
+
+    <!-- Logo -->
+    <div class="mb-10 flex flex-col items-center gap-4 select-none">
+      <svg viewBox="0 0 120 120" class="w-28 h-28 md:w-36 md:h-36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="56" stroke="#f26522" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+        <circle cx="60" cy="60" r="46" fill="#042353" stroke="#eae7e4" stroke-width="0.5" opacity="0.3"/>
+        <g transform="rotate(-35, 60, 60)">
+          <rect x="57" y="18" width="6" height="54" rx="3" fill="#eae7e4"/>
+          <ellipse cx="60" cy="18" rx="3" ry="4" fill="#eae7e4"/>
+          <ellipse cx="60" cy="18" rx="1.5" ry="2" fill="#042353"/>
+          <polygon points="57,72 63,72 60,84" fill="#eae7e4"/>
+        </g>
+        <path d="M 38 90 Q 60 72 82 80 Q 94 84 100 76" stroke="#f26522" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+        <path d="M 28 98 Q 50 80 74 88" stroke="#f26522" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      </svg>
+      <div class="text-center">
+        <div class="font-heading font-black text-5xl md:text-6xl text-white tracking-tight leading-none">LIBERTY</div>
+        <div class="flex items-center gap-3 mt-2">
+          <div class="flex-1 h-px" style="background:rgba(242,101,34,0.5)"></div>
+          <span class="text-brand-orange font-bold tracking-widest text-xs uppercase">Bordados</span>
+          <div class="flex-1 h-px" style="background:rgba(242,101,34,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-lg md:text-xl font-light mb-10 max-w-lg mx-auto" style="color:rgba(234,231,228,0.8)">
+      Bordados de alta qualidade com tecnologia e precisão. Conecte-se conosco.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+      <button
+        onclick="openCatalog()"
+        class="sm:col-span-2 btn-stitch bg-brand-orange text-white py-4 px-6 rounded-2xl flex items-center justify-center gap-3 font-bold text-lg hover:bg-orange-600 transition-colors shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M208,24H72A32,32,0,0,0,40,56V224a8,8,0,0,0,8,8H192a8,8,0,0,0,0-16H56a16,16,0,0,1,16-16H208a8,8,0,0,0,8-8V32A8,8,0,0,0,208,24Zm-8,160H72a31.82,31.82,0,0,0-16,4.29V56A16,16,0,0,1,72,40H200Z"/></svg>
+        Ver Todos Produtos
+      </button>
+
+      <a href="https://wa.me/557999707773" target="_blank" rel="noreferrer"
+        class="btn-stitch bg-white text-brand-blue py-4 px-6 rounded-2xl flex items-center justify-center gap-3 font-semibold hover:bg-gray-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#22c55e" viewBox="0 0 256 256"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72,24,24,0,0,1,19.29-23.54l11.48,22.94L101,117.11a8,8,0,0,0-.73,7.65,56.47,56.47,0,0,0,30.15,30.15,8,8,0,0,0,7.65-.73l13.77-9.18,22.94,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a88,88,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216l12.47-37.4a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>
+        Compre no Atacado
+      </a>
+
+      <a href="https://www.mercadolivre.com.br/pagina/libertybordados" target="_blank" rel="noreferrer"
+        class="btn-stitch bg-white text-brand-blue py-4 px-6 rounded-2xl flex items-center justify-center gap-3 font-semibold hover:bg-gray-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#eab308" viewBox="0 0 256 256"><path d="M230.14,70.54l-96-48a8,8,0,0,0-8.28,0l-96,48A8,8,0,0,0,26,78v112a8,8,0,0,0,4.43,7.14l96,48a8,8,0,0,0,7.14,0l96-48A8,8,0,0,0,234,190V78A8,8,0,0,0,230.14,70.54ZM128,38.57,208.93,80,128,121.43,47.07,80ZM42,96.43l78,39v85.14l-78-39Zm94,124.14V135.43l78-39v85.14Z"/></svg>
+        Mercado Livre
+      </a>
+
+      <a href="https://shopee.com.br/libertybordados" target="_blank" rel="noreferrer"
+        class="btn-stitch bg-white text-brand-blue py-4 px-6 rounded-2xl flex items-center justify-center gap-3 font-semibold hover:bg-gray-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f26522" viewBox="0 0 256 256"><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16H34.05l32.51,168.86A24,24,0,1,0,98.24,208H160a24,24,0,1,0,23.61-32H93.17l-4.5-24H208a8,8,0,0,0,7.69-5.86l24-88A8,8,0,0,0,222.14,58.87ZM72,232a8,8,0,1,1,8-8A8,8,0,0,1,72,232Zm112,0a8,8,0,1,1,8-8A8,8,0,0,1,184,232ZM203.42,136H85.29L63.17,72H206.58Z"/></svg>
+        Compre na Shopee
+      </a>
+
+      <a href="#" target="_blank" rel="noreferrer"
+        class="btn-stitch bg-white text-brand-blue py-4 px-6 rounded-2xl flex items-center justify-center gap-3 font-semibold hover:bg-gray-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" viewBox="0 0 256 256"><path d="M224,72a48.05,48.05,0,0,1-48,48H160V112a48,48,0,0,1,96,0Zm-117.49,69.37A95.54,95.54,0,0,0,128,96H64A64,64,0,0,0,0,160v8a8,8,0,0,0,8,8H215.17l-1.89,9.86A16,16,0,0,1,197.55,200H170a16,16,0,1,0,0,16h27.55a32,32,0,0,0,31.46-26.29l12-62.86A8,8,0,0,0,233.13,118H216A80.35,80.35,0,0,1,216,128H233.13a16,16,0,0,1-13.88,8H192a32,32,0,0,1-32-32V88h16a64.07,64.07,0,0,0,64-64,8,8,0,0,0-8-8,64.07,64.07,0,0,0-62.36,50.1A79.82,79.82,0,0,0,128,56H64A80,80,0,0,0,0,136v24a8,8,0,0,0,8,8H16v16a16,16,0,1,0,16-16H32V144H64a64.07,64.07,0,0,1,58.51,38.14Z"/></svg>
+        Compre no TikTok
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════════════ -->
+<section id="about" class="py-24 px-6" style="background:#031c42">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+    <!-- Arte bordado -->
+    <div class="order-2 md:order-1 reveal">
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center aspect-square md:aspect-[4/5]" style="background:#031c42">
+        <svg viewBox="0 0 400 500" class="w-full h-full absolute inset-0 opacity-20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 100 Q 200 50 350 100 Q 200 150 50 100 Z" fill="none" stroke="#f26522" stroke-width="1.5"/>
+          <path d="M 50 200 Q 200 150 350 200 Q 200 250 50 200 Z" fill="none" stroke="#f26522" stroke-width="1.5"/>
+          <path d="M 50 300 Q 200 250 350 300 Q 200 350 50 300 Z" fill="none" stroke="#f26522" stroke-width="1.5"/>
+          <path d="M 50 400 Q 200 350 350 400 Q 200 450 50 400 Z" fill="none" stroke="#f26522" stroke-width="1.5"/>
+        </svg>
+        <div class="relative z-10 flex flex-col items-center gap-4 p-8">
+          <div class="w-24 h-24 rounded-full flex items-center justify-center" style="background:rgba(242,101,34,0.2);border:1px solid rgba(242,101,34,0.4)">
+            <svg viewBox="0 0 60 60" class="w-12 h-12" fill="none">
+              <g transform="rotate(-35, 30, 30)">
+                <rect x="27" y="6" width="6" height="32" rx="3" fill="#eae7e4"/>
+                <ellipse cx="30" cy="6" rx="3" ry="4" fill="#eae7e4"/>
+                <ellipse cx="30" cy="6" rx="1.5" ry="2" fill="#042353"/>
+                <polygon points="27,38 33,38 30,48" fill="#eae7e4"/>
+              </g>
+              <path d="M 14 50 Q 30 40 46 46" stroke="#f26522" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="text-center">
+            <div class="font-heading font-black text-4xl text-white">LIBERTY</div>
+            <div class="text-xs tracking-widest font-bold" style="color:#f26522">BORDADOS</div>
+          </div>
+          <div class="text-xs tracking-wider text-center" style="color:rgba(234,231,228,0.5)">Qualidade em cada ponto</div>
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full mix-blend-multiply blur-2xl opacity-40" style="background:#f26522"></div>
+      </div>
+    </div>
+
+    <!-- Texto -->
+    <div class="order-1 md:order-2 reveal">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-6" style="background:rgba(255,255,255,0.1);color:#f26522">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.68,90.17a8,8,0,0,0-5.79-5.46L171,73.47,148.82,31.64a8,8,0,0,0-13.64,0L113,73.47,68.11,84.71a8,8,0,0,0-3.4,13.65L97,130.42l-3.26,47.59a8,8,0,0,0,10.79,8l43.45-16.42L191.41,186a8,8,0,0,0,10.79-8l-3.25-47.59,32.28-32.06A8,8,0,0,0,221.68,90.17Z"/></svg>
+        Tradição e Tecnologia
+      </div>
+      <h2 class="font-heading text-4xl md:text-5xl font-black mb-6 leading-tight text-white">
+        Fabricação <span style="color:#f26522">Própria.</span><br/>Qualidade Absoluta.
+      </h2>
+      <p class="text-lg mb-6 leading-relaxed" style="color:rgba(234,231,228,0.8)">
+        Na Liberty Bordados, cada fio conta uma história. Combinamos a precisão das mais
+        modernas máquinas industriais com o cuidado do acabamento artesanal.
+      </p>
+      <p class="text-lg mb-8 leading-relaxed" style="color:rgba(234,231,228,0.8)">
+        Nossa estrutura permite atender de pequenos pedidos a grandes produções corporativas,
+        garantindo que a sua marca seja representada com a máxima excelência.
+      </p>
+      <ul class="space-y-4 font-medium" style="color:#eae7e4">
+        <li class="flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f26522" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>
+          Fios de alta durabilidade
+        </li>
+        <li class="flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f26522" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>
+          Maquinário de última geração
+        </li>
+        <li class="flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f26522" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>
+          Controle de qualidade rigoroso
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     LOCATION
+═══════════════════════════════════════════════════ -->
+<section id="location" class="py-24 px-6 relative overflow-hidden" style="background:#042353">
+  <div class="max-w-6xl mx-auto flex flex-col items-center text-center reveal">
+    <h2 class="font-heading text-4xl md:text-5xl font-black mb-4 text-white">
+      Onde nos <span style="color:#f26522">Encontrar</span>
+    </h2>
+    <p class="max-w-2xl mb-12" style="color:rgba(234,231,228,0.7)">
+      Venha nos visitar e conhecer de perto nossa linha de produção e showroom de produtos finais.
+    </p>
+
+    <div class="w-full max-w-4xl p-2 md:p-4 rounded-3xl shadow-2xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+      <div class="w-full rounded-2xl overflow-hidden" style="height:400px;background:#eae7e4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975766258416!2d-46.65649438440669!3d-23.561349567475146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%20-%20S%C3%A3o%20Paulo%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1679000000000!5m2!1spt-BR!2sbr"
+          width="100%" height="100%" style="border:0;filter:grayscale(50%) contrast(1.2)"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Localização Liberty Bordados">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-col md:flex-row gap-8 text-left max-w-4xl w-full justify-center">
+      <div class="flex items-start gap-4">
+        <div class="p-3 rounded-full flex-shrink-0" style="background:rgba(242,101,34,0.2);color:#f26522">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,16a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,16Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,192Zm0-104a8,8,0,0,1,8,8v56a8,8,0,0,1-16,0V96A8,8,0,0,1,128,88Zm0-32a12,12,0,1,1-12,12A12,12,0,0,1,128,56Z"/></svg>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg text-white">Endereço</h4>
+          <p style="color:rgba(234,231,228,0.7)">Rua Exemplo das Confecções, 123<br/>Bairro Industrial - SP</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="p-3 rounded-full flex-shrink-0" style="background:rgba(242,101,34,0.2);color:#f26522">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg text-white">Horário de Funcionamento</h4>
+          <p style="color:rgba(234,231,228,0.7)">Segunda a Sexta: 08h às 18h<br/>Sábado: 08h às 12h</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════ -->
+<footer class="py-8 text-center text-sm" style="background:#010e22;color:rgba(234,231,228,0.5)">
+  <p>© <span id="year"></span> Liberty Bordados. Todos os direitos reservados.</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════
+     MODAL CATÁLOGO
+═══════════════════════════════════════════════════ -->
+<div id="catalog-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center">
+  <div class="absolute inset-0 glass-dark" onclick="closeCatalog()"></div>
+  <div class="modal-box relative w-full h-full flex flex-col overflow-hidden" style="background:#eae7e4;color:#042353">
+
+    <!-- Header -->
+    <div class="px-6 py-4 flex justify-between items-center sticky top-0 z-10" style="background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);border-bottom:1px solid rgba(4,35,83,0.1)">
+      <div class="flex items-center gap-4">
+        <button onclick="closeCatalog()" class="p-2 rounded-full transition-colors" style="background:rgba(4,35,83,0.1)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#042353" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"/></svg>
+        </button>
+        <h2 class="font-heading font-black text-2xl flex items-center gap-2" style="color:#042353">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f26522" viewBox="0 0 256 256"><path d="M208,24H72A32,32,0,0,0,40,56V224a8,8,0,0,0,8,8H192a8,8,0,0,0,0-16H56a16,16,0,0,1,16-16H208a8,8,0,0,0,8-8V32A8,8,0,0,0,208,24Zm-8,160H72a31.82,31.82,0,0,0-16,4.29V56A16,16,0,0,1,72,40H200Z"/></svg>
+          Catálogo
+        </h2>
+      </div>
+      <button onclick="openAdmin()" class="text-xs font-bold flex items-center gap-1 px-4 py-2 rounded-full shadow-sm transition-colors" style="color:#042353;background:white;border:1px solid rgba(4,35,83,0.1)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M240,120a48.05,48.05,0,0,0-48-48H152.2A56,56,0,0,0,48,72v0c0,.67,0,1.34,0,2A48,48,0,0,0,16,120v96a8,8,0,0,0,8,8H232a8,8,0,0,0,8-8ZM96,32a40,40,0,0,1,39.9,44H56.1A40,40,0,0,1,96,32ZM32,128a32,32,0,0,1,32-32H80v48H32Zm64,80H32V160H96Zm16,0V96h32v112Zm80,0H160V160h32Zm32,0H208V128H176V96h16a32,32,0,0,1,32,32Z"/></svg>
+        Admin
+      </button>
+    </div>
+
+    <!-- Filtros -->
+    <div class="px-6 py-4 flex gap-2 overflow-x-auto whitespace-nowrap hide-scroll" style="background:#eae7e4">
+      <button class="category-btn active px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" onclick="filterCategory('Todos', this)">Todos</button>
+      <button class="category-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" onclick="filterCategory('Camisas', this)">Camisas</button>
+      <button class="category-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" onclick="filterCategory('Jaquetas', this)">Jaquetas</button>
+      <button class="category-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" onclick="filterCategory('Bonés', this)">Bonés</button>
+      <button class="category-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" onclick="filterCategory('Uniformes', this)">Uniformes</button>
+      <button class="category-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" onclick="filterCategory('Moletons', this)">Moletons</button>
+    </div>
+
+    <!-- Grid -->
+    <div id="products-grid" class="p-6 overflow-y-auto flex-1 grid grid-cols-1 gap-6" style="background:#eae7e4"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODAL ADMIN
+═══════════════════════════════════════════════════ -->
+<div id="admin-modal" class="modal-overlay fixed inset-0 z-[60] flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/60" style="backdrop-filter:blur(4px)" onclick="closeAdmin()"></div>
+  <div class="modal-box relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden" style="color:#042353">
+    <div class="p-6 relative" style="background:#042353;color:white">
+      <button onclick="closeAdmin()" class="absolute top-4 right-4" style="color:rgba(255,255,255,0.5)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+      </button>
+      <h3 class="font-heading font-bold text-xl flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M240,120a48.05,48.05,0,0,0-48-48H152.2A56,56,0,0,0,48,72v0c0,.67,0,1.34,0,2A48,48,0,0,0,16,120v96a8,8,0,0,0,8,8H232a8,8,0,0,0,8-8ZM96,32a40,40,0,0,1,39.9,44H56.1A40,40,0,0,1,96,32ZM32,128a32,32,0,0,1,32-32H80v48H32Zm64,80H32V160H96Zm16,0V96h32v112Zm80,0H160V160h32Zm32,0H208V128H176V96h16a32,32,0,0,1,32,32Z"/></svg>
+        Área Restrita
+      </h3>
+      <p class="text-sm mt-1" style="color:rgba(255,255,255,0.7)">Gerenciamento do Catálogo</p>
+    </div>
+    <div class="p-10 flex flex-col items-center text-center gap-4">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background:rgba(242,101,34,0.1);border:1px solid rgba(242,101,34,0.3)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f26522" viewBox="0 0 256 256"><path d="M240,120a48.05,48.05,0,0,0-48-48H152.2A56,56,0,0,0,48,72v0c0,.67,0,1.34,0,2A48,48,0,0,0,16,120v96a8,8,0,0,0,8,8H232a8,8,0,0,0,8-8ZM96,32a40,40,0,0,1,39.9,44H56.1A40,40,0,0,1,96,32ZM32,128a32,32,0,0,1,32-32H80v48H32Zm64,80H32V160H96Zm16,0V96h32v112Zm80,0H160V160h32Zm32,0H208V128H176V96h16a32,32,0,0,1,32,32Z"/></svg>
+      </div>
+      <h4 class="font-heading font-bold text-xl" style="color:#042353">Em breve</h4>
+      <p class="text-sm max-w-xs" style="color:rgba(4,35,83,0.6)">O painel administrativo estará disponível em breve. Em desenvolvimento.</p>
+      <button onclick="closeAdmin()" class="mt-2 px-6 py-2 rounded-xl font-bold text-sm text-white transition-colors" style="background:#042353">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     SCRIPT
+═══════════════════════════════════════════════════ -->
+<script>
+  // Ano no footer
+  document.getElementById('year').textContent = new Date().getFullYear()
+
+  // Dados dos produtos
+  const PRODUCTS = [
+    { id:1,  nome:'Camisa Polo Bordada',    categoria:'Camisas',   descricao:'Camisa polo 100% algodão com bordado personalizado no peito.' },
+    { id:2,  nome:'Camisa Social Empresa',  categoria:'Camisas',   descricao:'Camisa social com logo bordado para uniformes corporativos.' },
+    { id:3,  nome:'Jaqueta Universitária',  categoria:'Jaquetas',  descricao:'Jaqueta com bordado em relevo, perfeita para formaturas e grupos.' },
+    { id:4,  nome:'Jaqueta Corporativa',    categoria:'Jaquetas',  descricao:'Jaqueta bomber com bordado frontal e traseiro personalizável.' },
+    { id:5,  nome:'Boné Snapback',          categoria:'Bonés',     descricao:'Boné aba reta com bordado 3D de alta definição.' },
+    { id:6,  nome:'Boné Trucker',           categoria:'Bonés',     descricao:'Boné trucker com tela traseira e bordado personalizado.' },
+    { id:7,  nome:'Uniforme Operacional',   categoria:'Uniformes', descricao:'Conjunto de uniforme completo com bordado da empresa.' },
+    { id:8,  nome:'Uniforme Esportivo',     categoria:'Uniformes', descricao:'Camisa esportiva dry-fit com escudo bordado.' },
+    { id:9,  nome:'Moletom Canguru',        categoria:'Moletons',  descricao:'Moletom com capuz e bordado no peito, ideal para o frio.' },
+    { id:10, nome:'Moletom Careca',         categoria:'Moletons',  descricao:'Moletom sem capuz com bordado centralizado.' },
+  ]
+
+  const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%239ca3af'%3ESem Foto%3C/text%3E%3C/svg%3E"
+  const WHATSAPP_NUM = '557999707773'
+
+  function renderProducts(list) {
+    const grid = document.getElementById('products-grid')
+    grid.style.gridTemplateColumns = ''
+    if (list.length === 0) {
+      grid.innerHTML = '<p class="col-span-full text-center py-10" style="color:rgba(4,35,83,0.5)">Nenhum produto encontrado.</p>'
+      return
+    }
+    grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(220px, 1fr))'
+    grid.innerHTML = list.map(p => {
+      const msg = encodeURIComponent(`Olá! Tenho interesse no produto: ${p.nome} da categoria ${p.categoria}.`)
+      return `
+        <div class="bg-white rounded-2xl p-3 shadow-lg flex flex-col" style="border:1px solid rgba(4,35,83,0.05)">
+          <div class="aspect-square rounded-xl overflow-hidden mb-4 bg-gray-100 relative">
+            <img src="${PLACEHOLDER}" alt="${p.nome}" class="w-full h-full object-cover" style="transition:transform 0.5s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+            <div class="absolute top-2 right-2 text-xs font-bold px-2 py-1 rounded-full" style="background:rgba(234,231,228,0.9);color:#042353">${p.categoria}</div>
+          </div>
+          <h3 class="font-bold text-lg mb-1 leading-tight" style="color:#042353">${p.nome}</h3>
+          <p class="text-xs mb-3" style="color:rgba(4,35,83,0.7)">${p.descricao}</p>
+          <div class="mt-auto pt-4">
+            <a href="https://wa.me/${WHATSAPP_NUM}?text=${msg}" target="_blank" rel="noreferrer"
+              class="w-full py-2 rounded-xl flex items-center justify-center gap-2 font-bold text-sm transition-colors"
+              style="background:rgba(242,101,34,0.1);color:#f26522;border:1px solid rgba(242,101,34,0.2)"
+              onmouseover="this.style.background='#f26522';this.style.color='white'"
+              onmouseout="this.style.background='rgba(242,101,34,0.1)';this.style.color='#f26522'">
+              <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' viewBox='0 0 256 256'><path d='M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72,24,24,0,0,1,19.29-23.54l11.48,22.94L101,117.11a8,8,0,0,0-.73,7.65,56.47,56.47,0,0,0,30.15,30.15,8,8,0,0,0,7.65-.73l13.77-9.18,22.94,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a88,88,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216l12.47-37.4a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z'/></svg>
+              Fazer Orçamento
+            </a>
+          </div>
+        </div>`
+    }).join('')
+  }
+
+  let currentCategory = 'Todos'
+
+  function filterCategory(cat, btn) {
+    currentCategory = cat
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'))
+    btn.classList.add('active')
+    const list = cat === 'Todos' ? PRODUCTS : PRODUCTS.filter(p => p.categoria === cat)
+    renderProducts(list)
+  }
+
+  // Modais
+  function openCatalog() {
+    renderProducts(PRODUCTS)
+    document.getElementById('catalog-modal').classList.add('active')
+    document.body.style.overflow = 'hidden'
+  }
+  function closeCatalog() {
+    document.getElementById('catalog-modal').classList.remove('active')
+    document.body.style.overflow = 'auto'
+  }
+  function openAdmin() {
+    document.getElementById('admin-modal').classList.add('active')
+  }
+  function closeAdmin() {
+    document.getElementById('admin-modal').classList.remove('active')
+  }
+
+  // Animação de reveal ao scroll
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('active')),
+    { threshold: 0.1 }
+  )
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+</script>
+</body>
+</html>
